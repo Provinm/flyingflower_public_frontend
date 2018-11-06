@@ -1,0 +1,11 @@
+<!--pages/order/order.wxml-->
+<view class='container'>
+  <view class="topCauseText">
+    {{cause_text}}
+  </view>
+  <view class="mutual_area">
+    <button type='primary' bindtap='recording'>
+      start
+    </button>
+  </view>
+</view>
