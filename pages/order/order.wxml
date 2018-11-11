@@ -4,8 +4,8 @@
     {{cause_text}}
   </view>
   <view class="mutual_area">
-    <button type='primary' bindtap='recording'>
-      start
+    <button type='primary' bindtouchstart='start_recording' bindtouchend="stop_recording">
+      recording
     </button>
   </view>
 </view>
