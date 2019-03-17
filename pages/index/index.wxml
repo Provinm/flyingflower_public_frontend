@@ -1,17 +1,27 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- <view class="userinfo"> -->
-    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button> -->
-    <!-- <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block> -->
-  <!-- </view> -->
-  <view class="headimg">
-    <image src="../../img/main.jpg"></image>
+
+  <view class='page_hd'>
+
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <i-panel title="令词">
+    <i-input value="{{ pivot }}" placeholder="花" maxlength='1'/>
+  </i-panel>
+
+    <i-button bind:click="river_start" type='success'>行令</i-button>
+    
+    <!-- <i-modal title="loading" visible="{{ modalVisible }}" bind:ok="handleClose1" bind:cancel="handleClose1">
+        <view>加载词令对应的诗词需要时间，请耐心等待</view>
+    </i-modal> -->
+
+    <i-modal title="loading" visible="{{ failVisible }}" bind:ok="handleClose1">
+        <view>连接服务器出错，请稍后再试</view>
+    </i-modal>
+
+    <view class="container">
+      <i-spin fix wx:if = "{{loadingSpin}}">加载中</i-spin>
+    </view>
+
   </view>
-  <button type='default' bindtap='enterOrder'> enter</button>
-</view>
+

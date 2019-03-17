@@ -2,10 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/order",
-    "pages/order/order",
-    "pages/scaner/scaner",
-    "pages/instruction/instruction"
+    "pages/asr/asr"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,10 @@
+<view class="container">
+
+
+     <i-panel title="令词">
+        {{pivot}}
+    </i-panel>
+    <button type='primary' bindtouchstart='start_recording' bindtouchend="stop_recording">
+      Recording
+    </button>
+</view>
