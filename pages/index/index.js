@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // canIUse: wx.canIUse('button.open-type.getUserInfo'),
     pivot: "花",
     modalVisible: false,
     loadingSpin: false,
@@ -13,7 +13,7 @@ Page({
 
   river_start: function(){
     wx.navigateTo({
-      url: '../river_index/index',
+      url: '../asr/asr',
     })
   },
   start: function(){

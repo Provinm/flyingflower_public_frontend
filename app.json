@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/asr/asr"
+    "pages/asr/asr",
+    "pages/info/info",
+    "pages/tts/tts"
   ],
   "window": {
     "backgroundTextStyle": "light",
