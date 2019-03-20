@@ -13,7 +13,7 @@ Page({
 
   river_start: function(){
     wx.navigateTo({
-      url: '../asr/asr',
+      url: '../asr/asr?p=' + this.data.pivot,
     })
   },
   start: function(){

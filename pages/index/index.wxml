@@ -1,31 +1,23 @@
 <!--index.wxml-->
 <view class='container page_bk'>
-
-  lalla 
-  <!-- <view>
-    <image src="../../img/index.png"></image>
-  </view> -->
-  <!-- <view class='page_hd'>
-
-  </view>
-
-  <i-panel title="令词">
-    <i-input value="{{ pivot }}" placeholder="花" maxlength='1'/>
-  </i-panel>
-
-    <i-button bind:click="river_start" type='success'>行令</i-button>
     
-    <!-- <i-modal title="loading" visible="{{ modalVisible }}" bind:ok="handleClose1" bind:cancel="handleClose1">
-        <view>加载词令对应的诗词需要时间，请耐心等待</view>
-    </i-modal> -->
+  <view class='page__bd bd_spacing'>
 
-    <!-- <i-modal title="loading" visible="{{ failVisible }}" bind:ok="handleClose1">
-        <view>连接服务器出错，请稍后再试</view>
-    </i-modal>
-
-    <view class="container">
-      <i-spin fix wx:if = "{{loadingSpin}}">加载中</i-spin>
-    </view> -->
+    <view class="weui-cells__title"></view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">主题词</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="花"/>
+                </view>
+            </view>
+        </view>
+    
+    <button class="weui-btn" type="primary" bindtap='river_start'>行令</button>
 
   </view>
 
+
+</view>

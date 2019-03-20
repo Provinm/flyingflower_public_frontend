@@ -29,7 +29,11 @@
 .page_bk {
   width:  100%;
   height: 100%;
-  background-image: url("https://wx2.sinaimg.cn/mw690/0060lm7Tly1g198gtt8i4j30j50zbnlv.jpg");
+  background-image: url("https://imgur.loukky.com/imgs/2019/03/5dd1d352537c1aa6.png");
   background-size: 100% auto;
   background-repeat: repeat-y;
+}
+
+.bd_spacing {
+  padding-top: 60%;
 }

@@ -1,10 +1,32 @@
-<view class="container">
+<view class="container page_bk">
+  
+  <view class='page__hd bd_spacing'>
 
+    <view class="ff_rule spacing">
+      <view class="weui-article__h3">玩法介绍</view>
+        <view class="weui-article__p">
+            飞花令，原本是古人行酒令时的一个文字游戏，源自古人的诗词之趣，得名于唐代诗人韩翃《寒食》中的名句“春城无处不飞花”。
+            本游戏采用参考中央电视台《中国诗词大会》中的 “飞花令” 环节，只要说出一联含有约定关键字的诗句即可
+        </view>
 
-     <i-panel title="令词">
-        {{pivot}}
-    </i-panel>
-    <button type='primary' bindtouchstart='start_recording' bindtouchend="stop_recording">
-      Recording
-    </button>
+    </view>
+ 
+    <view class="text_domain spacing">
+      <view class="weui-cells__title"></view>
+        <view class="weui-cells weui-cells_after-title ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">主题词</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" value='{{pivot}}' disabled="true" />
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <button class="weui-btn" type="primary" bind:touchstart="start_recording" bind:touchend="stop_recording">录音</button>
+
+  </view>
+
 </view>

@@ -38,7 +38,8 @@ function playInnerAudio(src) {
 
 // 注册停止播放的回调
 recordingMgr.onStop(res => {
-  playInnerAudio(res.tempFilePath);
+  // playInnerAudio(res.tempFilePath);
+  sendAudioData(res.tempFilePath)
 })
 
 Page({
@@ -47,7 +48,7 @@ Page({
    * Page initial data
    */
   data: {
-
+    pivot: ""
   },
 
   // recording
@@ -70,7 +71,9 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      pivot: options.p
+    })
   },
 
   /**
