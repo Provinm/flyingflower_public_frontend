@@ -1,7 +1,11 @@
 <!--index.wxml-->
-<view class="container">
+<view class='container page_bk'>
 
-  <view class='page_hd'>
+  lalla 
+  <!-- <view>
+    <image src="../../img/index.png"></image>
+  </view> -->
+  <!-- <view class='page_hd'>
 
   </view>
 
@@ -15,13 +19,13 @@
         <view>加载词令对应的诗词需要时间，请耐心等待</view>
     </i-modal> -->
 
-    <i-modal title="loading" visible="{{ failVisible }}" bind:ok="handleClose1">
+    <!-- <i-modal title="loading" visible="{{ failVisible }}" bind:ok="handleClose1">
         <view>连接服务器出错，请稍后再试</view>
     </i-modal>
 
     <view class="container">
       <i-spin fix wx:if = "{{loadingSpin}}">加载中</i-spin>
-    </view>
+    </view> -->
 
   </view>
 

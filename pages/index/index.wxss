@@ -25,3 +25,11 @@
   /* bottom: 20rpx; */
   /* width: 99%; */
 }
+
+.page_bk {
+  width:  100%;
+  height: 100%;
+  background-image: url("https://wx2.sinaimg.cn/mw690/0060lm7Tly1g198gtt8i4j30j50zbnlv.jpg");
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+}
