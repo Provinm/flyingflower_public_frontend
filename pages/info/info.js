@@ -5,14 +5,25 @@ Page({
    * Page initial data
    */
   data: {
+    sentence: "",
+    author: "",
+    title: "",
+    bt_text: "答得很棒，让AI接招"
+  },
 
+  start_tts: function () {
+    console.log("start tts request")
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      sentence: options.msg,
+      author: options.author,
+      title: options.title
+    })
   },
 
   /**

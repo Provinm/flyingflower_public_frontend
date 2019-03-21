@@ -1,2 +1,17 @@
 <!--pages/info/info.wxml-->
-<text>pages/info/info.wxml</text>
+<view class='container page_bk'>
+  
+  <view class="poetry">
+
+    <view class=''>
+      <view class='title'>
+      《{{title}}》 —{{author}}
+      </view>
+      <view class='body'>
+      {{sentence}}
+      </view>
+    </view>
+
+    <button class="weui-btn" type="primary" bindtap='start_tts'>{{bt_text}}</button>
+  </view>
+</view>

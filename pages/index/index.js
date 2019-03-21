@@ -13,7 +13,8 @@ Page({
 
   river_start: function(){
     wx.navigateTo({
-      url: '../asr/asr?p=' + this.data.pivot,
+      // url: '../asr/asr?p=' + this.data.pivot,
+      url: "../info/info?msg=床前明月光，疑是地上霜&author=李白&title=静夜思" 
     })
   },
   start: function(){

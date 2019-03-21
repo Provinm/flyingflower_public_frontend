@@ -12,16 +12,49 @@ function sendAudioData(src) {
     filePath: src,
     name: "file",
     success: function display_info(result) {
-      console.log("get result", result)
-      var data = JSON.parse(result.data);
-      var msg = ""; 
-      if ("result" in data) {
-        msg = data.result;
-      };
-      var cur_page = getCurrentPages()[0];
-      cur_page.setData({ msg: msg })
+      wx.hideLoading({
+        success: function () {
+          console.log("get result", result)
+          var data = JSON.parse(result.data);
+          var msg = "";
+
+          // asr 成功或失败
+          if ("result" in data) {
+            msg = data.result;
+            wx.navigateTo({
+              url: '../info?msg='+msg,
+            })
+          } else {
+            msg = data.msg;
+            wx.showModal({
+              title: "异常",
+              content: msg,
+              showCancel: false,
+              confirmText: "返回首页",
+              success: function (res) {
+                if (res.confirm) {
+                  wx.navigateBack({
+                    delta: 2
+                  })
+                }
+              }
+            })
+          }
+          // var cur_page = getCurrentPages()[0];
+          // cur_page.setData({ msg: msg })
+
+        }
+      })
+      
     },
     fail: function display_error(error) {
+      wx.hideToast({
+        success: function () {
+          wx.navigateBack({
+            "delta": 1
+          })
+        }
+      })
       console.log("error happended");
     }
   }
@@ -33,13 +66,18 @@ function playInnerAudio(src) {
   const innerAudio = wx.createInnerAudioContext();
   innerAudio.src = src;
   innerAudio.autoplay = true;
-
 }
 
 // 注册停止播放的回调
 recordingMgr.onStop(res => {
   // playInnerAudio(res.tempFilePath);
-  sendAudioData(res.tempFilePath)
+  wx.showLoading({
+    title: '正在加载',
+    success: function () {
+      // sendAudioData(res.tempFilePath)
+      playInnerAudio(res.tempFilePath)
+    }
+  })
 })
 
 Page({
