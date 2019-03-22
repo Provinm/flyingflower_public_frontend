@@ -10,6 +10,12 @@ Page({
     loadingSpin: false,
     failVisible: false
   },
+  getPivot: function(e) {
+    let p = e.detail.value
+    this.setData({
+      pivot: p
+    })
+  },
 
   river_start: function(){
     wx.navigateTo({
@@ -31,18 +37,47 @@ Page({
       },
       success: res => {
         console.log(res);
-        // 把申请的 cookie 赋值到全局
-        that.data.loadingSpin = false
-        app.globalData.cookie = res.cookie;
-        app.globalData.pivot = pivot
-        wx.navigateTo({
-          url: '../asr/asr', 
-        })
+        let data = res.data
+        if (data.ret == 0) {
+          // 把申请的 cookie 赋值到全局
+          app.globalData.cookie = res.data.token;
+          app.globalData.pivot = pivot
+          wx.navigateTo({
+            url: '../asr/asr?p=' + pivot,
+          })
+        } else {
+          wx.showModal({
+            title: '错误',
+            content: data.msg,
+            showCancel: false,
+            confirmText: "返回首页",
+            success(res) {
+              if (res.confirm){
+                wx.navigateBack({
+                  delta:1
+                })
+              }
+            }
+          })
+        }
       },
       fail: res => {
         console.log(res);
-        that.data.loadingSpin = false;
-        that.data.failVisible = true
+        // that.data.loadingSpin = false;
+        // that.data.failVisible = true
+        wx.showModal({
+          title: '错误',
+          content: "网络出现错误",
+          showCancel: false,
+          confirmText: "返回首页",
+          success(res) {
+            if (res.confirm) {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          }
+        })
       }
     })
   },

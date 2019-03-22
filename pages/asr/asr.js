@@ -74,8 +74,8 @@ recordingMgr.onStop(res => {
   wx.showLoading({
     title: '正在加载',
     success: function () {
-      // sendAudioData(res.tempFilePath)
-      playInnerAudio(res.tempFilePath)
+      sendAudioData(res.tempFilePath)
+      // playInnerAudio(res.tempFilePath)
     }
   })
 })

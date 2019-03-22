@@ -10,12 +10,12 @@
                     <view class="weui-label">主题词</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="花"/>
+                    <input class="weui-input" placeholder="花" bindinput='getPivot' />
                 </view>
             </view>
         </view>
     
-    <button class="weui-btn" type="primary" bindtap='river_start'>行令</button>
+    <button class="weui-btn" type="primary" bindtap='start'>行令</button>
 
   </view>
 
