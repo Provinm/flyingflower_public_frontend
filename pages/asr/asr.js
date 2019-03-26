@@ -11,6 +11,9 @@ function sendAudioData(src) {
     url: host + "asr/",
     filePath: src,
     name: "file",
+    formData:{
+      token: app.globalData.cookie
+    },
     success: function display_info(result) {
       wx.hideLoading({
         success: function () {
@@ -19,10 +22,10 @@ function sendAudioData(src) {
           var msg = "";
 
           // asr 成功或失败
-          if ("result" in data) {
-            msg = data.result;
+          if ("data" in data) {
+            msg = data.data;
             wx.navigateTo({
-              url: '../info?msg='+msg,
+              url: '../info/info?msg='+msg,
             })
           } else {
             msg = data.msg;

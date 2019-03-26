@@ -77,7 +77,7 @@ App({
 
   globalData: {
     userInfo: null,
-    host: "http://127.0.0.1:8000/ebrose/",
+    host: "http://www.crazyxin.cn/ebrose/",
     cookie: "",
     pivot: ""
   }
