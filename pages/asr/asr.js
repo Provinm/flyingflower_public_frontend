@@ -9,6 +9,9 @@ function sendAudioData(src) {
   let host = app.globalData.host;
   var file_options = {
     url: host + "asr/",
+    formData:{
+      token: app.globalData.cookie
+    },
     filePath: src,
     name: "file",
     success: function display_info(result) {
@@ -19,10 +22,10 @@ function sendAudioData(src) {
           var msg = "";
 
           // asr 成功或失败
-          if ("result" in data) {
-            msg = data.result;
+          if ("data" in data) {
+            var ele = data.data;
             wx.navigateTo({
-              url: '../info?msg='+msg,
+              url: '../info/info?text='+ele.text + '&author=' + ele.author + '&title=' + ele.title,
             })
           } else {
             msg = data.msg;
@@ -34,15 +37,12 @@ function sendAudioData(src) {
               success: function (res) {
                 if (res.confirm) {
                   wx.navigateBack({
-                    delta: 2
+                    delta: 1
                   })
                 }
               }
             })
           }
-          // var cur_page = getCurrentPages()[0];
-          // cur_page.setData({ msg: msg })
-
         }
       })
       
@@ -93,9 +93,14 @@ Page({
   start_recording: function () {
     // var ReMgr = that.recordingMgr;
     console.log("start recording")
+    wx.showLoading({
+      title: '录音中',
+    })
     const options = {
       sampleRate: 16000,
       format: "mp3",
+      frameSize: 50,
+      numberOfChannels: 1
     };
     recordingMgr.start(options);
   },
@@ -103,6 +108,7 @@ Page({
   stop_recording: function () {
     console.log("stop recording")
     recordingMgr.stop();
+    wx.hideLoading()
   },
 
   /**
@@ -110,56 +116,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      pivot: options.p
+      pivot: app.globalData.pivot
     })
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
   }
 })

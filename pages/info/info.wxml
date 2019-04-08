@@ -7,11 +7,10 @@
       <view class='title'>
       《{{title}}》 —{{author}}
       </view>
-      <view class='body'>
+      <view class='body' wx:for = "{{text}}"wx:for-item="sentence">
       {{sentence}}
       </view>
     </view>
-
-    <button class="weui-btn" type="primary" bindtap='start_tts'>{{bt_text}}</button>
+    <button class="weui-btn" type="primary" bindtap='ai_turn'>{{bt_text}}</button>
   </view>
 </view>

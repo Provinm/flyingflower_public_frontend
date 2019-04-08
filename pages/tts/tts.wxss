@@ -1,1 +1,26 @@
 /* pages/tts/tts.wxss */
+.page_bk {
+  width:  100%;
+  height: 100%;
+  background-image: url("http://wx2.sinaimg.cn/mw690/0060lm7Tly1g1a9b6vsttj30j510y1g8.jpg");
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+}
+
+.poetry {
+  padding-top: 80%;
+  font-weight: bold;
+  font-size: large
+}
+
+.title {
+  padding-top: 10px;
+  text-align: center;
+
+}
+
+.body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center
+}

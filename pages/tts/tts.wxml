@@ -1,2 +1,18 @@
-<!--pages/tts/tts.wxml-->
-<text>pages/tts/tts.wxml</text>
+<!--pages/info/info.wxml-->
+<view class='container page_bk'>
+  
+  <view class="poetry">
+
+    <view class=''>
+      <view class='title'>
+      《{{title}}》 —{{author}}
+      </view>
+      <view class='body' wx:for = "{{text}}"wx:for-item="sentence">
+      {{sentence}}
+      </view>
+    </view>
+
+    <button class="weui-btn" type="primary" bindtap='start_tts'>我想听一下语音</button>
+    <button class="weui-btn" type="primary" bindtap='user_turn'>该我来了</button>
+  </view>
+</view>
