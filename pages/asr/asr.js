@@ -14,6 +14,9 @@ function sendAudioData(src) {
     },
     filePath: src,
     name: "file",
+    formData:{
+      token: app.globalData.cookie
+    },
     success: function display_info(result) {
       wx.hideLoading({
         success: function () {
