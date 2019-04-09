@@ -1,6 +1,13 @@
+
 // pages/tts/tts.js
 
 const app = getApp()
+const innerAudioContext = wx.createInnerAudioContext()
+
+var play = function (path) {
+  innerAudioContext.src = path
+  innerAudioContext.play()
+}
 
 var split_sentence = function (sentence, pivot) {
   var s = sentence.split("。")
@@ -31,21 +38,21 @@ Page({
     sentence: ""
   },
 
-  start_tts: function(){
+  start_tts: function () {
     var text = this.data.sentence
     wx.showLoading({
       title: '正在加载',
     })
-    var tts_url = app.globalData.host + "speech?" + "text=" + text
+    var tts_url = app.globalData.host + "speech?" + "sentence=" + text + "&token=" + app.globalData.cookie
     console.log(tts_url)
     wx.downloadFile({
-      url: tts_url ,
+      url: tts_url,
       success: res => {
         wx.hideLoading()
         if (res.statusCode === 200) {
-          wx.playVoice({
-            filePath: res.tempFilePath,
-          })
+          console.log(res)
+          console.log(res.tempFilePath)
+          play(res.tempFilePath)
         } else {
           wx.showModal({
             title: "异常",
@@ -82,10 +89,10 @@ Page({
     })
   },
 
-  user_turn: function() {
-      wx.navigateTo({
-        url: '../asr/asr',
-      })
+  user_turn: function () {
+    wx.navigateTo({
+      url: '../asr/asr',
+    })
   },
   /**
    * Lifecycle function--Called when page load
@@ -95,7 +102,7 @@ Page({
     console.log(result)
     this.setData({
       text: result[1],
-      author: options.author, 
+      author: options.author,
       title: options.title,
       sentence: result[0]
     })
