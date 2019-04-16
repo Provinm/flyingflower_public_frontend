@@ -27,7 +27,7 @@ function sendAudioData(src) {
           // asr 成功或失败
           if ("data" in data) {
             var ele = data.data;
-            wx.navigateTo({
+            wx.redirectTo({
               url: '../info/info?text='+ele.text + '&author=' + ele.author + '&title=' + ele.title,
             })
           } else {
@@ -36,14 +36,14 @@ function sendAudioData(src) {
               title: "异常",
               content: msg,
               showCancel: false,
-              confirmText: "返回首页",
-              success: function (res) {
-                if (res.confirm) {
-                  wx.navigateBack({
-                    delta: 1
-                  })
-                }
-              }
+              confirmText: "重新挑战",
+              // success: function (res) {
+              //   if (res.confirm) {
+              //     wx.navigateBack({
+              //       delta: 1
+              //     })
+              //   }
+              // }
             })
           }
         }

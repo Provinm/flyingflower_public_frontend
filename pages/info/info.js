@@ -1,23 +1,6 @@
 // pages/info/info.js
 const app = getApp()
-
-var split_sentence = function (sentence, pivot) {
-  var s = sentence.split("。")
-  s = s.filter(function(i){
-    return Boolean(i)
-  })
-  var target = ""
-  var i
-  for (i=0; i<s.length; i++) {
-    var item = s[i]
-    if (item.includes(pivot)) {
-      target = item
-      break
-    }
-  }
-  return [target, s]
-}
-
+var Utils = require("../../utils.js")
 
 Page({
 
@@ -50,7 +33,7 @@ Page({
         var resp = res.data
         if ("data" in resp) {
           var ele = resp.data;
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../tts/tts?text=' + ele.text + '&author=' + ele.author + '&title=' + ele.title,
           })
         } else {
@@ -62,8 +45,11 @@ Page({
             confirmText: "返回首页",
             success: function (res) {
               if (res.confirm) {
-                wx.navigateBack({
-                  delta: 2
+                // wx.navigateBack({
+                //   delta: 2
+                // })
+                wx.redirectTo({
+                  url: '../index/index',
                 })
               }
             }
@@ -80,8 +66,11 @@ Page({
           confirmText: "返回首页",
           success: function (res) {
             if (res.confirm) {
-              wx.navigateBack({
-                delta: 2
+              // wx.navigateBack({
+              //   delta: 2
+              // })
+              wx.redirectTo({
+                url: '../index/index',
               })
             }
           }
@@ -93,12 +82,13 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    var result = split_sentence(options.text, app.globalData.pivot)
+    // var result = split_sentence()
+    var result = Utils.beautify_poetry(options.text, app.globalData.pivot)
 
     this.setData({
       text: result[1],
-      author: options.author,
-      title: options.title,
+      author: Utils.handle_author(options.author),
+      title: Utils.handle_title(options.title),
       sentence: result[0]
     })
   },

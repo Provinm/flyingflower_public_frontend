@@ -3,19 +3,22 @@
 .page_bk {
   width:  100%;
   height: 100%;
-  background-image: url("http://wx1.sinaimg.cn/mw690/0060lm7Tly1g199qc0ryhj30j70znwt0.jpg");
+  /* background-image: url("http://wx1.sinaimg.cn/mw690/0060lm7Tly1g199qc0ryhj30j70znwt0.jpg");
+   */
+   background-image: url("http://wx3.sinaimg.cn/large/0060lm7Tly1g228assm86j30ku18rhcz.jpg");
   background-size: 100% auto;
   background-repeat: repeat-y;
 }
 
-/* .text_domain{
-  padding-top: 40%;
-} */
-
 .bd_spacing {
-  padding-top: 20%;
+  padding-top: 60%;
 }
 
 .spacing {
   padding-top: 10px;
+}
+
+.pivot_view {
+  color: #E8495B;
+  font-weight: bold;
 }

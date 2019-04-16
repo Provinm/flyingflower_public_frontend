@@ -3,14 +3,17 @@
   
   <view class="poetry">
 
-    <view class=''>
       <view class='title'>
       《{{title}}》 —{{author}}
       </view>
+
       <view class='body' wx:for = "{{text}}"wx:for-item="sentence">
       {{sentence}}
       </view>
-    </view>
-    <button class="weui-btn" type="primary" bindtap='ai_turn'>{{bt_text}}</button>
+    
+  </view>
+
+  <view class='btn_area'>
+      <button class="weui-btn" plain='true' bindtap='ai_turn'>{{bt_text}}</button>
   </view>
 </view>

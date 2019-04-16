@@ -1,6 +1,7 @@
 <!--pages/info/info.wxml-->
 <view class='container page_bk'>
   
+  <view class='page__bd'>
   <view class="poetry">
 
     <view class=''>
@@ -11,8 +12,10 @@
       {{sentence}}
       </view>
     </view>
-
-    <button class="weui-btn" type="primary" bindtap='start_tts'>我想听一下语音</button>
-    <button class="weui-btn" type="primary" bindtap='user_turn'>该我来了</button>
+  </view>
+  </view>
+  <view class='btn_area'>
+     <button class="weui-btn" plain='true' bindtap='start_tts'>让AI念出来</button>
+    <button class="weui-btn" plain='true' bindtap='user_turn'>该我来了</button>
   </view>
 </view>

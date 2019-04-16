@@ -1,21 +1,35 @@
 <!--index.wxml-->
 <view class='container page_bk'>
-    
-  <view class='page__bd bd_spacing'>
 
-    <view class="weui-cells__title"></view>
+  <view class='index_hd'>
+    <view class='page__title'>飞 花 令</view>
+
+    <view class='weui-article bd_spacing'>
+      <view class='weui-article__section'>
+        <view class="weui-article__h3">玩法介绍</view>
+        <view class="weui-article__p">
+          飞花令，原本是古人行酒令时的一个文字游戏，源自古人的诗词之趣，得名于唐代诗人韩翃《寒食》中的名句“春城无处不飞花”。
+          本游戏采用参考中央电视台《中国诗词大会》中的 “飞花令” 环节，只要说出一联含有约定关键字的诗句即可
+      </view>
+      </view>
+    </view>
+  </view>
+    
+  <view class='page__bd'>
+
+    <view class="weui-cells__title "></view>
         <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_input">
+            <view class="weui-cell weui-cell_input define-input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">主题词</view>
+                    <view class="weui-label ">主题词</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="花" bindinput='getPivot' />
+                    <input class="weui-input " placeholder="花" bindinput='getPivot' />
                 </view>
             </view>
         </view>
     
-    <button class="weui-btn" type="primary" bindtap='start'>行令</button>
+    <button class="weui-btn" type='default' plain='true' bindtap='start'>进入游戏</button>
 
   </view>
 
