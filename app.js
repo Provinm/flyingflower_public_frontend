@@ -10,7 +10,7 @@ App({
 
   globalData: {
     userInfo: null,
-    host: "http://www.crazyxin.cn/ebrose/",
+    host: "https://www.crazyxin.cn/ebrose/",
     cookie: "",
     pivot: ""
   }

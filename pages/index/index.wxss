@@ -46,3 +46,7 @@
 .index_hd {
   padding-top: 10px;
 }
+
+.index_notify{
+  color: red
+}

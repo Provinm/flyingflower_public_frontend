@@ -30,6 +30,6 @@
 
 .btn_area {
     width: 90%;
-    position: fixed;
+    /* position: fixed; */
     bottom: 50rpx;
 }

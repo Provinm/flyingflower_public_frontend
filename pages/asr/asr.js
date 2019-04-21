@@ -33,7 +33,7 @@ function sendAudioData(src) {
           } else {
             msg = data.msg;
             wx.showModal({
-              title: "异常",
+              title: "提示",
               content: msg,
               showCancel: false,
               confirmText: "重新挑战",
@@ -89,13 +89,17 @@ Page({
    * Page initial data
    */
   data: {
-    pivot: ""
+    pivot: "",
+    recoding_prompt: "按住 录音"
   },
 
   // recording
   start_recording: function () {
     // var ReMgr = that.recordingMgr;
-    console.log("start recording")
+    // console.log("start recording")
+    this.setData({
+      recoding_prompt: "松开 结束"
+    })
     wx.showLoading({
       title: '录音中',
     })
@@ -109,7 +113,10 @@ Page({
   },
 
   stop_recording: function () {
-    console.log("stop recording")
+    // console.log("stop recording")
+    this.setData({
+      recoding_prompt: "按住 录音"
+    })
     recordingMgr.stop();
     wx.hideLoading()
   },

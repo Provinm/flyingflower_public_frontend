@@ -25,7 +25,7 @@ Page({
   },
   start: function(){
     let that = this;
-    let pivot = that.data.pivot;
+    let pivot = that.data.pivot || "花";
     let host = app.globalData.host;
     let cookie = app.globalData.cookie
       // 显示弹窗
@@ -51,13 +51,13 @@ Page({
             content: data.msg,
             showCancel: false,
             confirmText: "返回首页",
-            success(res) {
-              if (res.confirm){
-                wx.navigateBack({
-                  delta:1
-                })
-              }
-            }
+            // success(res) {
+            //   if (res.confirm){
+            //     wx.navigateBack({
+            //       delta:1
+            //     })
+            //   }
+            // }
           })
         }
       },
@@ -68,13 +68,13 @@ Page({
           content: "网络出现错误",
           showCancel: false,
           confirmText: "返回首页",
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          }
+          // success(res) {
+          //   if (res.confirm) {
+          //     wx.navigateBack({
+          //       delta: 1
+          //     })
+          //   }
+          // }
         })
       }
     })

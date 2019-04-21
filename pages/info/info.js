@@ -39,7 +39,7 @@ Page({
         } else {
           var msg = resp.msg;
           wx.showModal({
-            title: "异常",
+            title: "提示",
             content: msg,
             showCancel: false,
             confirmText: "返回首页",

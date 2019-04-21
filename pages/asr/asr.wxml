@@ -9,6 +9,13 @@
         <view class="weui-article__p">
          长按 录音键 开始录音，说出一句或者一联含有已选主题词 <span class='pivot_view'>{{pivot}}</span> 的诗句。松开按钮之后等待语音识别结果。
       </view>
+       <view class="weui-article__h3">玩法建议以及须知</view>
+        <view class="weui-article__p">
+         1. 本游戏数据库主要收录唐宋诗词
+      </view>
+      <view class="weui-article__p">
+         2. 如果遇到说出一整联诗句未能成功识别，提示 没听过 时，可以尝试仅说含有令字的那一句即可
+      </view>
       </view>
     </view>
 
@@ -19,11 +26,11 @@
                     <view class="weui-label ">已选主题词</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input pivot_view" value='{{pivot}}'  bindinput='getPivot' disabled='' />
+                    <input class="weui-input pivot_view" value='{{pivot}}'  bindinput='getPivot' disabled />
                 </view>
             </view>
         </view>
 
-  <button class="weui-btn" plain='true' bind:touchstart="start_recording" bind:touchend="stop_recording">开始录音</button>
+  <button class="weui-btn" plain='true' bind:touchstart="start_recording" bind:touchend="stop_recording">{{recoding_prompt}}</button>
   </view>
 </view>
